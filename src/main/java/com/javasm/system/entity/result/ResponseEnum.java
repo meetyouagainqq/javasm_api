@@ -10,7 +10,8 @@ public enum ResponseEnum {
     DATA_ALREADY_CHANGE(280,"此数据已被修改，请刷新"),
     NO_LOGIN(300,"没有登录，请先登录"),
     LOGOUT_SUCCESS(320,"退出成功"),
-    NO_PERMISSION(330,"没有权限");
+    NO_PERMISSION(330,"没有权限"),
+    UPLOAD_SUCCESS(340,"上传成功");
     private Integer code;
     private String msg;
 

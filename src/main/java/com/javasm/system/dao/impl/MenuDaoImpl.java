@@ -184,4 +184,26 @@ public class MenuDaoImpl implements MenuDao {
         return menu1;
     }
 
+    @Override
+    public List<Menu> getMenuByLevel(Integer level) {
+        Connection connection = DruidUtils.getConnection();
+        String sql = "SELECT * FROM pn_admin_menu pam WHERE ";
+        if (level == 1) {
+            //父级菜单
+            sql += "pam.pid = 0 ";
+        } else if (level == 2) {
+            sql += "pam.pid !=0 ";
+        }
+        List<Menu> menuList = new ArrayList<>();
+        try {
+            menuList = new QueryRunner().query(connection, sql,
+                    new BeanListHandler<>(Menu.class, new BasicRowProcessor(new GenerousBeanProcessor())));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            DruidUtils.close(connection);
+        }
+        return menuList;
+    }
+
 }

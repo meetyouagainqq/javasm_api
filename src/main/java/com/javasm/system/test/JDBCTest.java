@@ -6,11 +6,14 @@ import com.javasm.system.dao.MenuDao;
 import com.javasm.system.dao.impl.LoginDaoImpl;
 import com.javasm.system.dao.impl.MenuDaoImpl;
 import com.javasm.system.entity.Menu;
+import com.javasm.system.entity.PageInfo;
 import com.javasm.system.entity.User;
 import com.javasm.system.service.LoginService;
 import com.javasm.system.service.MenuService;
+import com.javasm.system.service.UserService;
 import com.javasm.system.service.impl.LoginServiceImpl;
 import com.javasm.system.service.impl.MenuServiceImpl;
+import com.javasm.system.service.impl.UserServiceImpl;
 import com.javasm.system.util.DruidUtils;
 import org.junit.Test;
 
@@ -59,15 +62,17 @@ public class JDBCTest {
         Long num = menuService.getMenuNumByQuery(menu);
         System.out.println(num);
     }
+
     @Test
-    public void test5(){
-        MenuService menuService=new MenuServiceImpl();
+    public void test5() {
+        MenuService menuService = new MenuServiceImpl();
         List<Menu> menuList = menuService.getMenuForSelect();
         System.out.println(menuList);
     }
+
     @Test
-    public void test6(){
-        MenuService menuService=new MenuServiceImpl();
+    public void test6() {
+        MenuService menuService = new MenuServiceImpl();
         Menu menu = new Menu();
         menu.setMid(200);
         menu.setMenuname("123");
@@ -77,21 +82,30 @@ public class JDBCTest {
         Integer num = menuService.editMenuById(menu);
         System.out.println(num);
     }
+
     @Test
-    public void test7(){
-        MenuService menuService=new MenuServiceImpl();
+    public void test7() {
+        MenuService menuService = new MenuServiceImpl();
         Menu menu = new Menu();
         menu.setMid(190);
         menu.setVersionid(1);
         Menu menu1 = menuService.regMenuByVersionId(menu);
         System.out.println(menu1);
     }
-    @Test
-    public void test8(){
-      LoginService loginService=new LoginServiceImpl();
-      List<String> menuUrlById = loginService.getMenuUrlById(9);
-      System.out.println(menuUrlById);
 
+    @Test
+    public void test8() {
+        LoginService loginService = new LoginServiceImpl();
+        List<String> menuUrlById = loginService.getMenuUrlById(9);
+        System.out.println(menuUrlById);
+
+    }
+
+    @Test
+    public void test9() {
+        UserService userService = new UserServiceImpl();
+        String authUserStr=null;
+        System.out.println(userService.editUserAuthId(authUserStr, 1));
     }
 
 

@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class MyFilter3 implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

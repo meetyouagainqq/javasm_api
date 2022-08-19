@@ -13,5 +13,5 @@ public interface MenuDao {
     public Integer deleteMenuById(Integer mid);
     public Integer editMenuById(Menu menu);
     public Menu regMenuByVersionId(Menu menu);
-
+   public List<Menu> getMenuByLevel(Integer level);
 }

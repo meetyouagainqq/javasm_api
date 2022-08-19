@@ -20,6 +20,4 @@ public interface MenuService {
     public Integer editMenuById(Menu menu);
 
     public Menu regMenuByVersionId(Menu menu);
-
-
 }

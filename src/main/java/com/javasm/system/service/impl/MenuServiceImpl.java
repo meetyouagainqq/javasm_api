@@ -8,7 +8,7 @@ import com.javasm.system.service.MenuService;
 import java.util.List;
 
 public class MenuServiceImpl implements MenuService {
-    MenuDao menuDao = new MenuDaoImpl();
+   private MenuDao menuDao = new MenuDaoImpl();
 
     @Override
     public List<Menu> getAllMenus(Integer page, Integer pageSize, Menu queryMenu) {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginServiceImpl implements LoginService {
-    LoginDao loginDao = new LoginDaoImpl();
+    private LoginDao loginDao = new LoginDaoImpl();
 
     @Override
     public User loginUser(User user) {

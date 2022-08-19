@@ -18,7 +18,7 @@ import java.util.List;
 
 @WebServlet("/menus/*")
 public class MenuController extends BaseController {
-    MenuService menuService = new MenuServiceImpl();
+    private MenuService menuService = new MenuServiceImpl();
 
     public void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer page = 1;
@@ -199,7 +199,7 @@ public class MenuController extends BaseController {
                 r.setCode(ResponseEnum.REQ_FAILED.getCode());
                 r.setMsg(ResponseEnum.REQ_FAILED.getMsg());
             }
-        }else {
+        } else {
             r.setCode(ResponseEnum.DATA_ALREADY_CHANGE.getCode());
             r.setMsg(ResponseEnum.DATA_ALREADY_CHANGE.getMsg());
         }
